@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #D32F2F;
+    --color-flame: #FF5722;
+    --color-bg-dark: #121212;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-dark);
+    color: #F5F5F5;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #121212;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D32F2F;
+  }
+}
+
+.font-serif {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(211, 47, 47, 0.4);
+}
+
+.flame-gradient {
+  background: linear-gradient(135deg, #D32F2F 0%, #FF5722 100%);
+}
+
+.glass-dark {
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: #D32F2F;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite;
+}
