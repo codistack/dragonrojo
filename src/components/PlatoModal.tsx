@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Flame, CheckCircle, Tag, Utensils } from 'lucide-react';
 import { Plato } from '../types';
+import { getDirectImageUrl } from '../utils/imageUtils';
 
 interface PlatoModalProps {
   plato: Plato | null;
@@ -29,7 +30,7 @@ export const PlatoModal: React.FC<PlatoModalProps> = ({ plato, onClose }) => {
         {/* Modal Header Image */}
         <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-gray-900">
           <img 
-            src={plato.imagenUrl || "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"} 
+            src={getDirectImageUrl(plato.imagenUrl) || "https://i.imgur.com/IMihdjZ.jpg"} 
             alt={plato.nombre}
             className="w-full h-full object-cover" 
           />

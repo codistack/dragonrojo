@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Flame, MapPin, UtensilsCrossed, Settings, Menu, X, Clock, Sparkles } from 'lucide-react';
 import { ConfiguracionGeneral } from '../types';
+import { getDirectImageUrl } from '../utils/imageUtils';
 
 interface NavbarProps {
   config: ConfiguracionGeneral;
@@ -46,11 +47,11 @@ export const Navbar: React.FC<NavbarProps> = ({ config, onOpenAdmin, onNavigate 
             <div className="relative">
               {config.logoUrl ? (
                 <img 
-                  src={config.logoUrl} 
+                  src={getDirectImageUrl(config.logoUrl)} 
                   alt={config.nombre} 
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover border border-red-500/40 glow-red group-hover:scale-105 transition-transform duration-300"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover border border-[#FF5722]/40 glow-red group-hover:scale-105 transition-transform duration-300 relative z-10 bg-[#121212]"
                   onError={(e) => {
-                    (e.target as HTMLElement).style.display = 'none';
+                    (e.target as HTMLElement).style.opacity = '0';
                   }}
                 />
               ) : null}

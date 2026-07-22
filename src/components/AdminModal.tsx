@@ -18,6 +18,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { CategoriaPlato, ConfiguracionGeneral, Plato } from '../types';
+import { getDirectImageUrl } from '../utils/imageUtils';
 import { 
   updateConfiguracionGeneral, 
   crearPlato, 
@@ -648,7 +649,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({ config, platos, isOpen, 
                         >
                           <div className="flex items-center gap-4">
                             <img 
-                              src={plato.imagenUrl || "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"} 
+                              src={getDirectImageUrl(plato.imagenUrl) || "https://i.imgur.com/IMihdjZ.jpg"} 
                               alt={plato.nombre}
                               className="w-12 h-12 rounded-xl object-cover bg-black shrink-0 border border-white/10" 
                             />

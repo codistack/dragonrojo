@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flame, MapPin, Clock, Heart, ShieldCheck } from 'lucide-react';
 import { ConfiguracionGeneral } from '../types';
+import { getDirectImageUrl } from '../utils/imageUtils';
 
 interface FooterProps {
   config: ConfiguracionGeneral;
@@ -21,9 +22,18 @@ export const Footer: React.FC<FooterProps> = ({ config, onOpenAdmin }) => {
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl flame-gradient flex items-center justify-center text-white glow-red font-bold text-base">
-                <span>DR</span>
-              </div>
+              {config.logoUrl ? (
+                <img 
+                  src={getDirectImageUrl(config.logoUrl)} 
+                  alt={config.nombre} 
+                  className="w-10 h-10 rounded-xl object-cover border border-[#FF5722]/40 glow-red" 
+                  onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                />
+              ) : (
+                <div className="w-10 h-10 rounded-xl flame-gradient flex items-center justify-center text-white glow-red font-bold text-base">
+                  <span>DR</span>
+                </div>
+              )}
               <span className="text-xl font-bold text-[#D32F2F] uppercase tracking-widest font-sans">
                 {config.nombre || 'Dragón Rojo'}
               </span>

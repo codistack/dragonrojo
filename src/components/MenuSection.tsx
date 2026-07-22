@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Flame, Sparkles, Filter, Eye, UtensilsCrossed } from 'lucide-react';
 import { CategoriaPlato, Plato } from '../types';
+import { getDirectImageUrl } from '../utils/imageUtils';
 
 interface MenuSectionProps {
   platos: Plato[];
@@ -126,7 +127,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ platos, onSelectPlato 
                 >
                   <div className="relative h-48 w-full rounded-2xl overflow-hidden bg-gray-800">
                     <img 
-                      src={plato.imagenUrl || "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"} 
+                      src={getDirectImageUrl(plato.imagenUrl) || "https://i.imgur.com/IMihdjZ.jpg"} 
                       alt={plato.nombre}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                     />
@@ -204,7 +205,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ platos, onSelectPlato 
                     {/* Dish Card Image */}
                     <div className="relative h-40 w-full rounded-2xl overflow-hidden bg-gray-800">
                       <img 
-                        src={plato.imagenUrl || "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800"} 
+                        src={getDirectImageUrl(plato.imagenUrl) || "https://i.imgur.com/IMihdjZ.jpg"} 
                         alt={plato.nombre}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                       />

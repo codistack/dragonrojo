@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flame, MapPin, Utensils, HeartHandshake, ShieldAlert, Award, Compass } from 'lucide-react';
 import { ConfiguracionGeneral } from '../types';
+import { getDirectImageUrl } from '../utils/imageUtils';
 
 interface HeroProps {
   config: ConfiguracionGeneral;
@@ -13,9 +14,9 @@ export const Hero: React.FC<HeroProps> = ({ config, onNavigate }) => {
       {/* Background Image Overlay with Gradients */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={config.heroImage || "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1600"} 
+          src={getDirectImageUrl(config.heroImage) || "https://i.imgur.com/IMihdjZ.jpg"} 
           alt="Comida Típica Austro Ecuatoriano" 
-          className="w-full h-full object-cover object-center opacity-25 filter brightness-75 scale-105 transition-transform duration-1000"
+          className="w-full h-full object-cover object-center opacity-30 filter brightness-90 scale-105 transition-transform duration-1000"
         />
         {/* Fire and Dark Vignette Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/85 to-black/70" />
@@ -112,29 +113,29 @@ export const Hero: React.FC<HeroProps> = ({ config, onNavigate }) => {
                 
                 <div className="relative h-64 rounded-2xl overflow-hidden border border-white/10 group">
                   <img 
-                    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800" 
-                    alt="Cuy Asado Criollo Austro Ecuatoriano"
+                    src={getDirectImageUrl(config.heroImage) || "https://i.imgur.com/IMihdjZ.jpg"} 
+                    alt="Pollo Asado a la Leña Dragón Rojo"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                   
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                     <span className="px-3 py-1 rounded-full flame-gradient text-white font-bold text-[10px] uppercase tracking-widest glow-red">
-                      Tradición Cuencana
+                      Especialidad a la Leña
                     </span>
                     <span className="px-3 py-1 rounded-full glass-dark text-[#FFC107] font-bold text-sm border border-white/20">
-                      $18.50
+                      $8.50
                     </span>
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <h3 className="text-2xl font-serif font-bold text-white flex items-center justify-between">
-                    <span>Cuy Asado al Carbón</span>
+                    <span>Pollo Asado a la Leña</span>
                     <Award className="w-5 h-5 text-[#FF5722]" />
                   </h3>
                   <p className="text-xs text-gray-400 italic leading-relaxed">
-                    Servido con papas doradas, mote pillo jugoso y salsa de maní artesanal molida a piedra.
+                    Pollo asado crujiente marinado con hierbas serranas, acompañado de arroz, menestra casera, papas y ají cuencano.
                   </p>
                 </div>
 
